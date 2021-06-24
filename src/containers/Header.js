@@ -1,8 +1,8 @@
 import React from 'react';
 import { HeaderComponent } from 'components';
 
-const HeaderContainer = () => {
-  return <HeaderComponent />;
+const HeaderContainer = ({ navItems, navIcons }) => {
+  return <HeaderComponent navItems={navItems} navIcons={navIcons}></HeaderComponent>;
 };
 
 export default HeaderContainer;

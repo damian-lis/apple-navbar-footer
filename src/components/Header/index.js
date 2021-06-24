@@ -1,9 +1,8 @@
 import React from 'react';
 import Header from './components';
 import { WrapperComponent } from 'components';
-import { navItems, navIcons } from 'data/header';
 
-const HeaderComponent = ({ children, ...restProps }) => {
+const HeaderComponent = ({ children, navItems, navIcons, ...restProps }) => {
   return (
     <Header {...restProps}>
       <Header.Navigation>
