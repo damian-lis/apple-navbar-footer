@@ -1,0 +1,40 @@
+import React, { useEffect, useRef, useContext } from 'react';
+import { WrapperComponent } from 'components';
+import Bag from './components';
+import { HeaderContext } from 'contexts';
+import { setAreaListener } from 'helpers';
+import BagView from './components';
+
+const BagComponent = ({ bagItems, ...restProps }) => {
+  const { setBagOpen } = useContext(HeaderContext.store);
+  const contentRef = useRef();
+
+  useEffect(() => setAreaListener(contentRef, [setBagOpen]));
+
+  return (
+    <>
+      <WrapperComponent>
+        <BagView.BagCaret />
+      </WrapperComponent>
+      <Bag {...restProps}>
+        <Bag.Content contentRef={contentRef}>
+          <Bag.Message>Twoja torba jest pusta</Bag.Message>
+          <Bag.Navigation>
+            <Bag.List>
+              {bagItems.map((bagItem) => (
+                <Bag.ListItem key={bagItem.icon}>
+                  <BagView.Icon className={bagItem.icon} />
+                  <Bag.Link onClick={() => setBagOpen(false)} to={bagItem.linkTo}>
+                    {bagItem.name}
+                  </Bag.Link>
+                </Bag.ListItem>
+              ))}
+            </Bag.List>
+          </Bag.Navigation>
+        </Bag.Content>
+      </Bag>
+    </>
+  );
+};
+
+export default BagComponent;
