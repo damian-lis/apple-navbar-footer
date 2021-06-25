@@ -17,7 +17,12 @@ const SearchComponent = ({ navIcons, children, ...restProps }) => {
   useEffect(() => setAreaListener(searchRef, [setSearch, setKeyword]));
 
   return (
-    <Search searchRef={searchRef} search={search} keyword={keyword} {...restProps}>
+    <Search
+      inputClick={inputClick}
+      searchRef={searchRef}
+      search={search}
+      keyword={keyword}
+      {...restProps}>
       <Search.FormContainer>
         <Search.Form onSubmit={submitHandler}>
           <Search.ButtonSearch type="submit">
@@ -56,7 +61,6 @@ const SearchComponent = ({ navIcons, children, ...restProps }) => {
         </Search.Form>
 
         <Search.ButtonCancelMobile
-          inputClick={inputClick}
           onClick={() => {
             setInputClick(false);
             setKeyword('');

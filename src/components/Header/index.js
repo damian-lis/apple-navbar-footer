@@ -4,14 +4,21 @@ import { WrapperComponent } from 'components';
 import { HeaderContext } from 'contexts';
 
 const HeaderComponent = ({ children, navItems, navIcons, ...restProps }) => {
-  const { bagOpen, setBagOpen, search, setSearch } = useContext(HeaderContext.store);
+  const { bagOpen, setBagOpen, search, setSearch, setKeyword, inputClick } = useContext(
+    HeaderContext.store
+  );
 
   return (
-    <Header search={search} {...restProps}>
+    <Header inputClick={inputClick} search={search} {...restProps}>
       <Header.Navigation>
         <WrapperComponent>
           <Header.List>
-            <Header.ListItem datatype="hamburgerIcon">
+            <Header.ListItem
+              datatype="hamburgerIcon"
+              onClick={() => {
+                setSearch(!search);
+                setKeyword('');
+              }}>
               <Header.Icon className={navIcons.hamburgerIcon}></Header.Icon>
             </Header.ListItem>
             <Header.ListItem datatype="logoIcon">
