@@ -1,3 +1,4 @@
 import HeaderContext from './header.context';
+import CurtainContext from './curtain.context';
 
-export { HeaderContext };
+export { HeaderContext, CurtainContext };

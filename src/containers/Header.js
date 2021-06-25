@@ -1,23 +1,30 @@
 import React, { useContext } from 'react';
-import { HeaderComponent, BagComponent, SearchComponent } from 'components';
-import { HeaderContext } from 'contexts';
+import { HeaderComponent, BagComponent, SearchComponent, CurtainComponent } from 'components';
+import { HeaderContext, CurtainContext } from 'contexts';
 
-const HeaderContainer = ({ navItems, navIcons, bagItems }) => {
+const HeaderContainer = ({ navItems, navIcons, bagItems, ...restProps }) => {
   const { bagOpen, search } = useContext(HeaderContext.store);
+  const { curtain } = useContext(CurtainContext.store);
+  document.body.style.overflow = curtain ? 'hidden' : 'auto';
 
   return (
-    <HeaderComponent navItems={navItems} navIcons={navIcons}>
-      {search && <SearchComponent navIcons={navIcons}></SearchComponent>}
-      {bagOpen && <BagComponent bagItems={bagItems} />}
-    </HeaderComponent>
+    <>
+      <CurtainComponent active={curtain} />
+      <HeaderComponent navItems={navItems} navIcons={navIcons} {...restProps}>
+        {search && <SearchComponent navIcons={navIcons}></SearchComponent>}
+        {bagOpen && <BagComponent bagItems={bagItems} />}
+      </HeaderComponent>
+    </>
   );
 };
 
 const HeaderContainerWrapper = ({ ...restProps }) => {
   return (
-    <HeaderContext.Provider>
-      <HeaderContainer {...restProps} />
-    </HeaderContext.Provider>
+    <CurtainContext.Provider>
+      <HeaderContext.Provider>
+        <HeaderContainer {...restProps} />
+      </HeaderContext.Provider>
+    </CurtainContext.Provider>
   );
 };
 

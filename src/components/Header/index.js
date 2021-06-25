@@ -1,12 +1,13 @@
 import React, { useContext } from 'react';
 import Header from './components';
 import { WrapperComponent } from 'components';
-import { HeaderContext } from 'contexts';
+import { HeaderContext, CurtainContext } from 'contexts';
 
 const HeaderComponent = ({ children, navItems, navIcons, ...restProps }) => {
   const { bagOpen, setBagOpen, search, setSearch, setKeyword, inputClick } = useContext(
     HeaderContext.store
   );
+  const { curtain, setCurtain } = useContext(CurtainContext.store);
 
   return (
     <Header inputClick={inputClick} search={search} {...restProps}>
@@ -17,6 +18,7 @@ const HeaderComponent = ({ children, navItems, navIcons, ...restProps }) => {
               datatype="hamburgerIcon"
               onClick={() => {
                 setSearch(!search);
+                setCurtain(!curtain);
                 setKeyword('');
               }}>
               <Header.Icon className={navIcons.hamburgerIcon}></Header.Icon>
@@ -35,6 +37,7 @@ const HeaderComponent = ({ children, navItems, navIcons, ...restProps }) => {
               datatype="searchIcon"
               onClick={() => {
                 setSearch(!search);
+                setCurtain(!curtain);
               }}>
               <Header.Icon className={navIcons.searchIcon}></Header.Icon>
             </Header.ListItem>

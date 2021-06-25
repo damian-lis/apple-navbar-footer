@@ -1,6 +1,6 @@
 import Search from './components';
 import React, { useContext, useRef, useEffect } from 'react';
-import { HeaderContext } from 'contexts';
+import { HeaderContext, CurtainContext } from 'contexts';
 import { setAreaListener } from 'helpers';
 
 const SearchComponent = ({ navIcons, children, ...restProps }) => {
@@ -8,13 +8,15 @@ const SearchComponent = ({ navIcons, children, ...restProps }) => {
   const { search, setSearch, keyword, setKeyword, inputClick, setInputClick } = useContext(
     HeaderContext.store
   );
+  const { curtain, setCurtain } = useContext(CurtainContext.store);
 
   const submitHandler = (e) => {
     e.preventDefault();
     setSearch(false);
+    setCurtain(false);
   };
 
-  useEffect(() => setAreaListener(searchRef, [setSearch, setKeyword]));
+  useEffect(() => setAreaListener(searchRef, [setSearch, setKeyword, setCurtain]));
 
   return (
     <Search
@@ -22,6 +24,7 @@ const SearchComponent = ({ navIcons, children, ...restProps }) => {
       searchRef={searchRef}
       search={search}
       keyword={keyword}
+      curtain={curtain}
       {...restProps}>
       <Search.FormContainer>
         <Search.Form onSubmit={submitHandler}>
@@ -48,6 +51,7 @@ const SearchComponent = ({ navIcons, children, ...restProps }) => {
               onClick={() => {
                 setSearch(false);
                 setKeyword('');
+                setCurtain(false);
               }}>
               <Search.Icon className={navIcons.closeIcon} />
             </Search.ButtonCloseDesktop>
