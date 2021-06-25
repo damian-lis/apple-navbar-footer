@@ -3,11 +3,11 @@ import Directory from './components';
 import { useWindowWidth } from '@react-hook/window-size';
 
 const DirectoryComponent = ({ directoryItems }) => {
-  const [click, setClick] = useState(false);
+  const [click, setClick] = useState(-1);
 
   const onClickHandler = (index) => {
     if (index === click) {
-      setClick(false);
+      setClick(-1);
     } else {
       setClick(index);
     }
@@ -19,13 +19,11 @@ const DirectoryComponent = ({ directoryItems }) => {
   return (
     <Directory>
       {directoryItems.map((item, index) => (
-        <Directory.Column key={directoryItems.title}>
-          <Directory.Title
-            active={click === index}
-            onClick={() => isMobile && onClickHandler(index)}>
+        <Directory.Column active={click === index} key={directoryItems.title}>
+          <Directory.Title onClick={() => isMobile && onClickHandler(index)}>
             {item.title}
           </Directory.Title>
-          <Directory.List active={click === index}>
+          <Directory.List>
             {item.links.map((link) => (
               <Directory.ListItem key={link.name}>
                 <Directory.Link to={link.linkTo}>{link.name}</Directory.Link>

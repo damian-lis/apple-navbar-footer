@@ -40,14 +40,14 @@ BagView.List = function BagViewList({ children, ...restProps }) {
   return <List {...restProps}>{children}</List>;
 };
 
-BagView.Icon = function BagViewIcon({ ...restProps }) {
-  return <Icon {...restProps} />;
+BagView.ListItem = function BagViewList({ children, ...restProps }) {
+  return <ListItem {...restProps}>{children}</ListItem>;
 };
 
 BagView.Link = function BagViewLink({ children, ...restProps }) {
   return <Link {...restProps}>{children}</Link>;
 };
 
-BagView.ListItem = function BagViewList({ children, ...restProps }) {
-  return <ListItem {...restProps}>{children}</ListItem>;
+BagView.Icon = function BagViewIcon({ ...restProps }) {
+  return <Icon {...restProps} />;
 };

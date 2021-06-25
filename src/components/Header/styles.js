@@ -8,56 +8,43 @@ const tabletBp = ({
   }
 }) => breakpoints.tablet && breakpoints.tablet;
 
-export const Navigation = styled.nav`
-  height: 100%;
-  margin: 0 auto;
-`;
-
-export const List = styled.ul`
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  height: 100%;
-`;
-
-export const ListItem = styled.li`
-  animation-duration: 0.3s;
-  animation-fill-mode: forwards;
-  cursor: pointer;
-
-  &[datatype='hamburgerIcon'] {
-    display: none;
-  }
-  &[datatype='hamburgerIcon'] {
-    display: none;
-  }
-`;
-
+export const Navigation = styled.nav``;
+export const List = styled.ul``;
+export const ListItem = styled.li``;
 export const Icon = styled.i``;
-
-export const Link = styled(RouterLink)`
-  color: white;
-`;
-
-export const Aside = styled.aside`
-  height: 0;
-`;
+export const Link = styled(RouterLink)``;
+export const Aside = styled.aside``;
 
 export const Container = styled.header`
-  color: white;
-  width: 100%;
   position: relative;
-  z-index: 1000;
-
+  height: ${({ theme: { header } }) => header.height.default};
+  width: 100%;
   background-color: ${({ theme: { header }, search }) =>
     search ? header.colors.background.main : header.colors.background.dark};
   backdrop-filter: ${({ search }) => (search ? 'none' : 'blur(10px)')};
-  height: ${({ theme: { header } }) => header.height.default};
+  color: white;
+  z-index: 1000;
+
+  ${Navigation} {
+    height: 100%;
+    margin: 0 auto;
+  }
+
+  ${List} {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 100%;
+  }
 
   ${ListItem} {
-    opacity: ${({ search }) => (search ? '1' : '0')};
     font-size: ${({ search }) => (search ? '16px' : '0')};
+    opacity: ${({ search }) => (search ? '1' : '0')};
+    cursor: pointer;
     animation-name: ${({ search }) => (search ? itemHidden : itemShow)};
+    animation-duration: 0.3s;
+    animation-fill-mode: forwards;
+
     &:nth-last-of-type(1) {
       animation-delay: ${({ search }) => (search ? '0.1s' : '0.8s')};
     }
@@ -82,13 +69,28 @@ export const Container = styled.header`
     &:nth-last-of-type(8) {
       animation-delay: ${({ search }) => (search ? '0.8s' : '0.1s')};
     }
+
+    &[datatype='hamburgerIcon'] {
+      display: none;
+    }
+    &[datatype='hamburgerIcon'] {
+      display: none;
+    }
+  }
+
+  ${Link} {
+    color: white;
+  }
+
+  ${Aside} {
+    height: 0;
   }
 
   @media (max-width: ${tabletBp}) {
-    background-color: ${({ search, theme: { header } }) =>
-      search ? 'black' : header.colors.background.dark};
     height: ${({ theme: { header } }) => header.height.mobile};
     margin-top: ${({ inputClick }) => (inputClick ? '-34px' : '0')};
+    background-color: ${({ search, theme: { header } }) =>
+      search ? 'black' : header.colors.background.dark};
 
     ${List} {
       justify-content: space-between;
@@ -97,9 +99,9 @@ export const Container = styled.header`
     }
 
     ${ListItem} {
+      font-size: 18px;
       animation: none;
       opacity: 1;
-      font-size: 18px;
 
       &[datatype='item'],
       &[datatype='searchIcon'] {
