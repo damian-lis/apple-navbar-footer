@@ -8,10 +8,33 @@ const SearchComponent = ({ navIcons, children, ...restProps }) => {
   );
   const { curtain, setCurtain } = useContext(CurtainContext.store);
 
-  const submitHandler = (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
     setSearch(false);
     setCurtain(false);
+  };
+
+  const handleInputChange = (e) => {
+    setKeyword(e.target.value);
+  };
+
+  const handleCloseDesktopClick = () => {
+    setSearch(false);
+    setKeyword('');
+    setCurtain(false);
+  };
+
+  const handleCloseMobileClick = () => {
+    setKeyword('');
+  };
+
+  const handleCancelMobileClick = () => {
+    setInputClick(false);
+    setKeyword('');
+  };
+
+  const handleInputMobileClick = () => {
+    setInputClick(true);
   };
 
   return (
@@ -22,7 +45,7 @@ const SearchComponent = ({ navIcons, children, ...restProps }) => {
       curtain={curtain}
       {...restProps}>
       <Search.FormContainer>
-        <Search.Form onSubmit={submitHandler}>
+        <Search.Form onSubmit={handleSubmit}>
           <Search.ButtonSearch type="submit">
             <Search.Icon className={navIcons.searchIcon} />
           </Search.ButtonSearch>
@@ -30,40 +53,30 @@ const SearchComponent = ({ navIcons, children, ...restProps }) => {
           <Search.InputContainer>
             <Search.InputDesktop
               value={keyword}
-              onChange={(e) => setKeyword(e.target.value)}
+              onChange={(e) => handleInputChange(e)}
               placeholder="Szukaj w Leaf.com"
             />
             <Search.InputMobile
               value={keyword}
-              onClick={() => setInputClick(true)}
-              onChange={(e) => setKeyword(e.target.value)}
+              onClick={handleInputMobileClick}
+              onChange={(e) => handleInputChange(e)}
               placeholder="Szukaj w Leaf.com"
             />
           </Search.InputContainer>
           <Search.ButtonContainer>
-            <Search.ButtonCloseDesktop
-              type="button"
-              onClick={() => {
-                setSearch(false);
-                setKeyword('');
-                setCurtain(false);
-              }}>
+            <Search.ButtonCloseDesktop type="button" onClick={handleCloseDesktopClick}>
               <Search.Icon className={navIcons.closeIcon} />
             </Search.ButtonCloseDesktop>
             <Search.ButtonCloseMobile
               keyword={keyword}
               type="button"
-              onClick={() => setKeyword('')}>
+              onClick={handleCloseMobileClick}>
               <Search.Icon className={navIcons.closeIcon} />
             </Search.ButtonCloseMobile>
           </Search.ButtonContainer>
         </Search.Form>
 
-        <Search.ButtonCancelMobile
-          onClick={() => {
-            setInputClick(false);
-            setKeyword('');
-          }}>
+        <Search.ButtonCancelMobile onClick={handleCancelMobileClick}>
           Anuluj
         </Search.ButtonCancelMobile>
       </Search.FormContainer>

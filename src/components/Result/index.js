@@ -10,6 +10,17 @@ const ResultComponent = ({ resultItems, navItems, ...restProps }) => {
   const filteredItems = filterByKeywords(resultItems.items, keyword);
   const filteredSuggestions = filterByKeywords(resultItems.suggestions, keyword);
 
+  const handleMobileClick = () => {
+    setSearch(false);
+    setCurtain(false);
+  };
+
+  const handleClick = () => {
+    setSearch(false);
+    setCurtain(false);
+    setInputClick(false);
+  };
+
   return (
     <Result
       search={search}
@@ -22,12 +33,7 @@ const ResultComponent = ({ resultItems, navItems, ...restProps }) => {
           <Result.MobileList>
             {navItems.map((item) => (
               <Result.MobileItem key={item.name}>
-                <Result.MobileLink
-                  to={item.linkTo}
-                  onClick={() => {
-                    setSearch(false);
-                    setCurtain(false);
-                  }}>
+                <Result.MobileLink to={item.linkTo} onClick={handleMobileClick}>
                   {item.name}
                 </Result.MobileLink>
               </Result.MobileItem>
@@ -41,13 +47,7 @@ const ResultComponent = ({ resultItems, navItems, ...restProps }) => {
             {filteredItems.map((item) => {
               return (
                 <Result.Item key={item.name}>
-                  <Result.Link
-                    to={item.to}
-                    onClick={() => {
-                      setSearch(false);
-                      setCurtain(false);
-                      setInputClick(false);
-                    }}>
+                  <Result.Link to={item.to} onClick={handleClick}>
                     {item.name}
                   </Result.Link>
                 </Result.Item>
@@ -61,13 +61,7 @@ const ResultComponent = ({ resultItems, navItems, ...restProps }) => {
           <Result.List>
             {filteredSuggestions.map((suggestion) => (
               <Result.Item key={suggestion.name}>
-                <Result.Link
-                  to={suggestion.to}
-                  onClick={() => {
-                    setSearch(false);
-                    setCurtain(false);
-                    setInputClick(false);
-                  }}>
+                <Result.Link to={suggestion.to} onClick={handleClick}>
                   <Result.Icon className="fas fa-search" />
                   {suggestion.name}
                 </Result.Link>

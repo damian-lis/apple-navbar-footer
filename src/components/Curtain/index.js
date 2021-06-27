@@ -6,15 +6,12 @@ const CurtainComponent = ({ ...restProps }) => {
   const { setCurtain } = useContext(CurtainContext.store);
   const { setSearch } = useContext(HeaderContext.store);
 
-  return (
-    <Container
-      onClick={() => {
-        setCurtain(false);
-        setSearch(false);
-      }}
-      {...restProps}
-    />
-  );
+  const handleClick = () => {
+    setCurtain(false);
+    setSearch(false);
+  };
+
+  return <Container onClick={handleClick} {...restProps} />;
 };
 
 export default CurtainComponent;

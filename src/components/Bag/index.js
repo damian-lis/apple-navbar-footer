@@ -8,6 +8,10 @@ const BagComponent = ({ bagItems, ...restProps }) => {
   const { setBagOpen } = useContext(HeaderContext.store);
   const contentRef = useRef();
 
+  const handleClick = () => {
+    setBagOpen(false);
+  };
+
   useEffect(() => setAreaListener(contentRef, [setBagOpen]));
 
   return (
@@ -23,7 +27,7 @@ const BagComponent = ({ bagItems, ...restProps }) => {
               {bagItems.map((bagItem) => (
                 <Bag.ListItem key={bagItem.icon}>
                   <Bag.Icon className={bagItem.icon} />
-                  <Bag.Link onClick={() => setBagOpen(false)} to={bagItem.linkTo}>
+                  <Bag.Link onClick={handleClick} to={bagItem.linkTo}>
                     {bagItem.name}
                   </Bag.Link>
                 </Bag.ListItem>
