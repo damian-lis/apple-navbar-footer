@@ -7,7 +7,6 @@ const tabletBp = ({
   }
 }) => breakpoints.tablet && breakpoints.tablet;
 
-export const Caret = styled.span``;
 export const Content = styled.div``;
 export const Message = styled.p``;
 export const Navigation = styled.nav``;
@@ -19,21 +18,6 @@ export const Icon = styled.i``;
 export const Container = styled.div`
   max-width: 1220px;
   margin: 0 auto;
-
-  ${Caret} {
-    position: relative;
-    top: -3px;
-    left: calc(100% - 13px);
-    display: block;
-    height: 12px;
-    width: 12px;
-    background-color: white;
-    border-top-left-radius: 5px;
-    border-top: 1px solid black;
-    border-left: 1px solid black;
-    transform: rotate(45deg);
-    z-index: 2;
-  }
 
   ${Content} {
     position: relative;
@@ -82,16 +66,8 @@ export const Container = styled.div`
   }
 
   @media (max-width: ${tabletBp}) {
-    ${Caret} {
-      top: -2px;
-      left: calc(100% - 15px);
-      padding-right: 20px;
-      border: none;
-      border-radius: 0;
-    }
-
     ${Content} {
-      top: 0px;
+      top: 0;
       left: 0;
       width: 100%;
       padding: 0 8% 4% 8%;
@@ -99,5 +75,28 @@ export const Container = styled.div`
       border-bottom: 1px solid #d3d3d3;
       border-radius: 0;
     }
+  }
+`;
+
+export const Caret = styled.span`
+  position: relative;
+  top: -3px;
+  left: calc(100% - 13px);
+  display: block;
+  height: 12px;
+  width: 12px;
+  background-color: white;
+  border-top-left-radius: 5px;
+  border-top: 1px solid grey;
+  border-left: 1px solid grey;
+  transform: rotate(45deg);
+  z-index: 2;
+
+  @media (max-width: ${tabletBp}) {
+    top: 0;
+    left: calc(100% - 15px);
+    padding-right: 20px;
+    border: none;
+    border-radius: 0;
   }
 `;
