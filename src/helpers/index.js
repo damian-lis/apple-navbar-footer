@@ -1,3 +1,4 @@
 import setAreaListener from './setAreaListener';
+import filterByKeywords from './filterByKeywords';
 
-export { setAreaListener };
+export { setAreaListener, filterByKeywords };

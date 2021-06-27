@@ -5,6 +5,7 @@ import HeaderComponent from './Header';
 import BagComponent from './Bag';
 import SearchComponent from './Search';
 import CurtainComponent from './Curtain';
+import ResultComponent from './Result';
 
 export {
   DirectoryComponent,
@@ -13,5 +14,6 @@ export {
   HeaderComponent,
   BagComponent,
   SearchComponent,
-  CurtainComponent
+  CurtainComponent,
+  ResultComponent
 };

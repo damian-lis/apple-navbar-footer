@@ -25,3 +25,33 @@ export const bagItems = [
     icon: 'fas fa-user-circle'
   }
 ];
+
+export const resultItems = {
+  items: [
+    { name: 'Akcesoria', to: '/akcesoria' },
+    { name: 'AirPods', to: '/airpods' },
+    { name: 'iOS', to: '/iOS' },
+    { name: 'Karty upominkowe', to: '/karyupominkowe' },
+    { name: 'iPhone SE', to: '/iphone-se' },
+    { name: 'iPhone X', to: '/iphone-X' },
+    { name: 'iPhone 12', to: '/iphone-12' },
+    { name: 'MacBookAir', to: '/macbookair' },
+    { name: 'MacBookPro', to: '/macbookpro' },
+    { name: 'Mac mini', to: '/macmini' }
+  ],
+  suggestions: [
+    { name: 'Akcesoria do Iphone' },
+    { name: 'Iphone - wsparcie' },
+    { name: 'Akcesoria MacbookAir' },
+    { name: 'Akcesoria MacbookPro' },
+    { name: 'Akcesoria Mac mini' },
+    { name: 'Mac- wsparcie' },
+    { name: 'Pomoc w przypadku utraconego koszyka' },
+    { name: 'Problem w logowaniu' },
+    { name: 'Problem z rejestracją' },
+    { name: 'Zaloguj się', to: '/login' },
+    { name: 'Zarejestuj się', to: '/register' },
+    { name: 'Pomoc', to: '/suppor' },
+    { name: 'Konto uzytkownika', to: '/user/panel' }
+  ]
+};

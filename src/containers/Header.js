@@ -1,18 +1,25 @@
 import React, { useContext } from 'react';
-import { HeaderComponent, BagComponent, SearchComponent, CurtainComponent } from 'components';
+import {
+  HeaderComponent,
+  BagComponent,
+  SearchComponent,
+  CurtainComponent,
+  ResultComponent
+} from 'components';
 import { HeaderContext, CurtainContext } from 'contexts';
 
-const HeaderContainer = ({ navItems, navIcons, bagItems, ...restProps }) => {
-  const { bagOpen, search } = useContext(HeaderContext.store);
+const HeaderContainer = ({ navItems, navIcons, bagItems, resultItems, ...restProps }) => {
+  const { bagOpen } = useContext(HeaderContext.store);
   const { curtain } = useContext(CurtainContext.store);
-  document.body.style.overflow = curtain ? 'hidden' : 'auto';
 
   return (
     <>
       <CurtainComponent active={curtain} />
       <HeaderComponent navItems={navItems} navIcons={navIcons} {...restProps}>
-        {search && <SearchComponent navIcons={navIcons}></SearchComponent>}
         {bagOpen && <BagComponent bagItems={bagItems} />}
+        <SearchComponent navIcons={navIcons}>
+          <ResultComponent resultItems={resultItems} navItems={navItems} />
+        </SearchComponent>
       </HeaderComponent>
     </>
   );
