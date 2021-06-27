@@ -1,6 +1,7 @@
 import { React, useState } from 'react';
 import Directory from './components';
 import { useWindowWidth } from '@react-hook/window-size';
+import theme from 'data/theme';
 
 const DirectoryComponent = ({ directoryItems }) => {
   const [click, setClick] = useState(-1);
@@ -14,7 +15,7 @@ const DirectoryComponent = ({ directoryItems }) => {
   };
 
   const windowWidth = useWindowWidth();
-  const isMobile = windowWidth < 769;
+  const isMobile = windowWidth < theme.general.breakpoints.tablet.slice(0, 3);
 
   return (
     <Directory>
