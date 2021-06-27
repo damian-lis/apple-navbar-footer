@@ -12,15 +12,15 @@ import {
   Icon
 } from './styles';
 
-export default function BagView({ children, ...restProps }) {
+export default function Bag({ children, ...restProps }) {
   return <Container {...restProps}>{children}</Container>;
 }
 
-BagView.BagCaret = function BagViewBagCaret({ ...restProps }) {
+Bag.Caret = function BagCaret({ ...restProps }) {
   return <Caret {...restProps} />;
 };
 
-BagView.Content = function BagViewContent({ children, contentRef, ...restProps }) {
+Bag.Content = function BagContent({ children, contentRef, ...restProps }) {
   return (
     <Content ref={contentRef} {...restProps}>
       {children}
@@ -28,26 +28,26 @@ BagView.Content = function BagViewContent({ children, contentRef, ...restProps }
   );
 };
 
-BagView.Message = function BagViewMessage({ children, ...restProps }) {
+Bag.Message = function BagMessage({ children, ...restProps }) {
   return <Message {...restProps}>{children}</Message>;
 };
 
-BagView.Navigation = function BagViewNavigation({ children, ...restProps }) {
+Bag.Navigation = function BagNavigation({ children, ...restProps }) {
   return <Navigation {...restProps}>{children}</Navigation>;
 };
 
-BagView.List = function BagViewList({ children, ...restProps }) {
+Bag.List = function BagList({ children, ...restProps }) {
   return <List {...restProps}>{children}</List>;
 };
 
-BagView.ListItem = function BagViewList({ children, ...restProps }) {
+Bag.ListItem = function BagList({ children, ...restProps }) {
   return <ListItem {...restProps}>{children}</ListItem>;
 };
 
-BagView.Link = function BagViewLink({ children, ...restProps }) {
+Bag.Link = function BagLink({ children, ...restProps }) {
   return <Link {...restProps}>{children}</Link>;
 };
 
-BagView.Icon = function BagViewIcon({ ...restProps }) {
+Bag.Icon = function BagIcon({ ...restProps }) {
   return <Icon {...restProps} />;
 };

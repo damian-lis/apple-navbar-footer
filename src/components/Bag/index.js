@@ -3,7 +3,6 @@ import { WrapperComponent } from 'components';
 import Bag from './components';
 import { HeaderContext } from 'contexts';
 import { setAreaListener } from 'helpers';
-import BagView from './components';
 
 const BagComponent = ({ bagItems, ...restProps }) => {
   const { setBagOpen } = useContext(HeaderContext.store);
@@ -14,7 +13,7 @@ const BagComponent = ({ bagItems, ...restProps }) => {
   return (
     <>
       <WrapperComponent>
-        <BagView.BagCaret />
+        <Bag.Caret />
       </WrapperComponent>
       <Bag {...restProps}>
         <Bag.Content contentRef={contentRef}>
@@ -23,7 +22,7 @@ const BagComponent = ({ bagItems, ...restProps }) => {
             <Bag.List>
               {bagItems.map((bagItem) => (
                 <Bag.ListItem key={bagItem.icon}>
-                  <BagView.Icon className={bagItem.icon} />
+                  <Bag.Icon className={bagItem.icon} />
                   <Bag.Link onClick={() => setBagOpen(false)} to={bagItem.linkTo}>
                     {bagItem.name}
                   </Bag.Link>
