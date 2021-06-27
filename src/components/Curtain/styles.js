@@ -10,6 +10,5 @@ export const Container = styled.div`
   left: 0;
   background-color: black;
   transition: 0.3s;
-  z-index: 999;
-  ${({ active }) => console.log(active)}
+  z-index: 1;
 `;
