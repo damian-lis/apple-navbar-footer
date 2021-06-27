@@ -22,9 +22,11 @@ export const ButtonCancelMobile = styled.button``;
 export const Container = styled.div`
   position: relative;
   top: -${({ theme: { header } }) => header.height.default && header.height.default};
+
   max-width: 680px;
   margin: 0 auto;
   background-color: transparent;
+  z-index: ${({ search }) => (search ? 2 : -1)};
 
   ${FormContainer} {
     display: flex;
@@ -103,14 +105,18 @@ export const Container = styled.div`
 
   @media (max-width: ${tabletBp}) {
     top: -${({ theme: { header } }) => header.height.mobile && header.height.mobile};
-    height: ${({ search }) => (search ? '110vh' : '0')};
+    height: ${({ search, inputClick, theme: { header } }) =>
+      search
+        ? inputClick
+          ? `calc(100vh + ${header.height.mobile ? header.height.mobile : 0})`
+          : '100vh'
+        : '0'};
     width: 100%;
-    max-width: 100%;
+    min-width: 100%;
     padding-top: ${({ theme: { header } }) => header.height.mobile && header.height.mobile};
     background-color: black;
-    transition: 0.5s;
     overflow: hidden;
-    z-index: -1;
+    transition: ${({ inputClick }) => (inputClick ? '0s' : '0.2s')};
 
     ${FormContainer} {
       height: 55px;
@@ -161,6 +167,7 @@ export const Container = styled.div`
       background-color: transparent;
       color: #2997ff;
       overflow: hidden;
+      transition: 0.1s;
     }
   }
 `;
