@@ -23,7 +23,6 @@ export const Container = styled.header`
     search ? header.colors.background.main : header.colors.background.dark};
   backdrop-filter: ${({ search }) => (search ? 'none' : 'blur(10px)')};
   color: white;
-  z-index: 1000;
 
   ${Navigation} {
     height: 100%;
@@ -38,7 +37,7 @@ export const Container = styled.header`
   }
 
   ${ListItem} {
-    font-size: ${({ search }) => (search ? '16px' : '0')};
+    font-size: ${({ search }) => (search ? '15px' : '0')};
     opacity: ${({ search }) => (search ? '1' : '0')};
     cursor: pointer;
     animation-name: ${({ search }) => (search ? itemHidden : itemShow)};
@@ -89,8 +88,8 @@ export const Container = styled.header`
   @media (max-width: ${tabletBp}) {
     height: ${({ theme: { header } }) => header.height.mobile};
     margin-top: ${({ inputClick }) => (inputClick ? '-34px' : '0')};
-    background-color: ${({ search, theme: { header } }) =>
-      search ? 'black' : header.colors.background.dark};
+    background-color: black;
+    transition: 0.1s;
 
     ${List} {
       justify-content: space-between;
@@ -102,6 +101,7 @@ export const Container = styled.header`
       font-size: 18px;
       animation: none;
       opacity: 1;
+      z-index: 3;
 
       &[datatype='item'],
       &[datatype='searchIcon'] {
@@ -111,7 +111,6 @@ export const Container = styled.header`
         display: block;
       }
       &[datatype='bagIcon'] {
-        transition: height 1s;
         height: ${({ search }) => (search ? '0' : 'auto')};
         overflow: hidden;
       }
