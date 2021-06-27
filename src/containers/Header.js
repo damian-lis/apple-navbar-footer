@@ -4,7 +4,8 @@ import {
   BagComponent,
   SearchComponent,
   CurtainComponent,
-  ResultComponent
+  ResultComponent,
+  NavigationComponent
 } from 'components';
 import { HeaderContext, CurtainContext } from 'contexts';
 
@@ -15,7 +16,9 @@ const HeaderContainer = ({ navItems, navIcons, bagItems, resultItems, ...restPro
   return (
     <>
       <CurtainComponent active={curtain} />
-      <HeaderComponent navItems={navItems} navIcons={navIcons} {...restProps}>
+      <HeaderComponent
+        Navigation={<NavigationComponent navItems={navItems} navIcons={navIcons} />}
+        {...restProps}>
         {bagOpen && <BagComponent bagItems={bagItems} />}
         <SearchComponent navIcons={navIcons}>
           <ResultComponent resultItems={resultItems} navItems={navItems} />
