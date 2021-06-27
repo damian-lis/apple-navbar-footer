@@ -13,12 +13,8 @@ import {
   ButtonCancelMobile
 } from './styles';
 
-export default function Search({ searchRef, children, ...restProps }) {
-  return (
-    <Container ref={searchRef} {...restProps}>
-      {children}
-    </Container>
-  );
+export default function Search({ children, ...restProps }) {
+  return <Container {...restProps}>{children}</Container>;
 }
 
 Search.FormContainer = function SearchFormContainer({ children, ...restProps }) {

@@ -1,10 +1,8 @@
 import Search from './components';
-import React, { useContext, useRef, useEffect } from 'react';
+import React, { useContext } from 'react';
 import { HeaderContext, CurtainContext } from 'contexts';
-import { setAreaListener } from 'helpers';
 
 const SearchComponent = ({ navIcons, children, ...restProps }) => {
-  const searchRef = useRef();
   const { search, setSearch, keyword, setKeyword, inputClick, setInputClick } = useContext(
     HeaderContext.store
   );
@@ -16,12 +14,9 @@ const SearchComponent = ({ navIcons, children, ...restProps }) => {
     setCurtain(false);
   };
 
-  useEffect(() => setAreaListener(searchRef, [setSearch, setKeyword, setCurtain]));
-
   return (
     <Search
       inputClick={inputClick}
-      searchRef={searchRef}
       search={search}
       keyword={keyword}
       curtain={curtain}
