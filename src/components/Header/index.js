@@ -9,23 +9,38 @@ const HeaderComponent = ({ children, navItems, navIcons, ...restProps }) => {
   );
   const { curtain, setCurtain } = useContext(CurtainContext.store);
 
+  const handleHamburgerClick = () => {
+    setSearch(!search);
+    setCurtain(!curtain);
+    setKeyword('');
+  };
+
+  const handleLogoClick = () => {
+    setSearch(false);
+    setCurtain(false);
+  };
+
+  const handleSearchClick = () => {
+    setSearch(true);
+    setCurtain(true);
+    setKeyword('');
+  };
+
+  const handleBagClick = () => {
+    setBagOpen(!bagOpen);
+  };
+
   return (
     <Header inputClick={inputClick} search={search} {...restProps}>
       <Header.Navigation>
         <WrapperComponent>
           <Header.List>
-            <Header.ListItem
-              datatype="hamburgerIcon"
-              onClick={() => {
-                setSearch(!search);
-                setCurtain(!curtain);
-                setKeyword('');
-              }}>
+            <Header.ListItem datatype="hamburgerIcon" onClick={handleHamburgerClick}>
               <Header.Icon className={navIcons.hamburgerIcon}></Header.Icon>
             </Header.ListItem>
             <Header.ListItem datatype="logoIcon">
               <Header.Link to="/">
-                <Header.Icon className={navIcons.logoIcon}></Header.Icon>
+                <Header.Icon className={navIcons.logoIcon} onClick={handleLogoClick}></Header.Icon>
               </Header.Link>
             </Header.ListItem>
             {navItems.map((item, index) => (
@@ -33,15 +48,10 @@ const HeaderComponent = ({ children, navItems, navIcons, ...restProps }) => {
                 <Header.Link to={item.linkTo}>{item.name}</Header.Link>
               </Header.ListItem>
             ))}
-            <Header.ListItem
-              datatype="searchIcon"
-              onClick={() => {
-                setSearch(!search);
-                setCurtain(!curtain);
-              }}>
+            <Header.ListItem datatype="searchIcon" onClick={handleSearchClick}>
               <Header.Icon className={navIcons.searchIcon}></Header.Icon>
             </Header.ListItem>
-            <Header.ListItem datatype="bagIcon" onClick={() => setBagOpen(!bagOpen)}>
+            <Header.ListItem datatype="bagIcon" onClick={handleBagClick}>
               <Header.Icon className={navIcons.bagIcon}></Header.Icon>
             </Header.ListItem>
           </Header.List>
