@@ -7,7 +7,7 @@ const ResultComponent = ({ resultItems, navItems, ...restProps }) => {
   const { search, setSearch, keyword, inputClick, setInputClick } = useContext(HeaderContext.store);
   const { curtain, setCurtain } = useContext(CurtainContext.store);
 
-  const filteredItems = filterByKeywords(resultItems.items, keyword);
+  const filteredElements = filterByKeywords(resultItems.elements, keyword);
   const filteredSuggestions = filterByKeywords(resultItems.suggestions, keyword);
 
   const handleMobileClick = () => {
@@ -44,11 +44,11 @@ const ResultComponent = ({ resultItems, navItems, ...restProps }) => {
         <Result.Category>
           <Result.Header>PODRĘCZNE ŁACZA</Result.Header>
           <Result.List>
-            {filteredItems.map((item) => {
+            {filteredElements.map((element) => {
               return (
-                <Result.Item key={item.name}>
-                  <Result.Link to={item.to} onClick={handleClick}>
-                    {item.name}
+                <Result.Item key={element.name}>
+                  <Result.Link to={element.linkTo} onClick={handleClick}>
+                    {element.name}
                   </Result.Link>
                 </Result.Item>
               );
@@ -61,7 +61,7 @@ const ResultComponent = ({ resultItems, navItems, ...restProps }) => {
           <Result.List>
             {filteredSuggestions.map((suggestion) => (
               <Result.Item key={suggestion.name}>
-                <Result.Link to={suggestion.to} onClick={handleClick}>
+                <Result.Link to={suggestion.linkTo} onClick={handleClick}>
                   <Result.Icon className="fas fa-search" />
                   {suggestion.name}
                 </Result.Link>
