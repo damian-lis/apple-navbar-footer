@@ -5,44 +5,42 @@ export const directoryItems = [
       { name: 'Mac', linkTo: '/mac' },
       { name: 'iPad', linkTo: '/iPad' },
       { name: 'iPhone', linkTo: '/iPhone' },
-      { name: 'Watch', linkTo: '/watch' },
+      { name: 'Zegarki', linkTo: '/zegarki' },
       { name: 'TV', linkTo: '/tv' },
-      { name: 'Music', linkTo: '/music' },
       { name: 'AirPods', linkTo: '/airPods' },
-      { name: 'iPod touch', linkTo: '/iPodTouch' },
-      { name: 'Akcesoria', linkTo: '/accesories' }
+      { name: 'iPod touch', linkTo: '/iPod-touch' },
+      { name: 'Akcesoria', linkTo: '/akcesoria' }
     ]
   },
   {
     title: 'Usługi',
     links: [
-      { name: 'Apple Music', linkTo: '/appleMusic' },
-      { name: 'Apple TV+', linkTo: '/appleTV+' },
-      { name: 'Apple Arcade', linkTo: '/appleArcade' },
+      { name: 'Apple TV+', linkTo: '/apple-TV+' },
+      { name: 'Apple Arcade', linkTo: '/apple-arcade' },
       { name: 'iCloud', linkTo: '/iCloud' },
-      { name: 'Apple One', linkTo: '/appleOne' },
-      { name: 'Apple Pay', linkTo: '/applePay' },
-      { name: 'Apple Store', linkTo: '/appleStore' }
+      { name: 'Apple One', linkTo: '/apple-one' },
+      { name: 'Apple Pay', linkTo: '/apple-pay' },
+      { name: 'Apple Store', linkTo: '/apple-store' }
     ]
   },
   {
     title: 'Apple Store',
     links: [
-      { name: 'Kupuj online', linkTo: '/buyOnline' },
-      { name: 'Sklep Apple', linkTo: '/appleStore' },
-      { name: 'Stan zamówienia', linkTo: '/orderStatus' },
-      { name: 'Pomoc w zakupach', linkTo: '/shoppingAssistance' }
+      { name: 'Kupuj online', linkTo: '/kupuj-online' },
+      { name: 'Sklep Apple', linkTo: '/sklep-apple' },
+      { name: 'Stan zamówienia', linkTo: '/stan-zamowienia' },
+      { name: 'Pomoc w zakupach', linkTo: '/zakupy-pomoc' }
     ]
   },
   {
     title: 'O firmie Apple',
     links: [
-      { name: 'Newsroom', linkTo: '/newsroom' },
-      { name: 'Apple Leadership', linkTo: '/appleLeadership' },
-      { name: 'Praca', linkTo: '/job' },
-      { name: 'Gwarancja', linkTo: '/guarantee' },
-      { name: 'Inwestorzy', linkTo: '/inwestors' },
-      { name: 'Kontakt', linkTo: '/contact' }
+      { name: 'Newsroom', linkTo: '/news-room' },
+      { name: 'Apple Leadership', linkTo: '/apple-leadership' },
+      { name: 'Praca', linkTo: '/praca' },
+      { name: 'Gwarancja', linkTo: '/gwarancja' },
+      { name: 'Inwestorzy', linkTo: '/inwestorzy' },
+      { name: 'Kontakt', linkTo: '/kontakt' }
     ]
   }
 ];
@@ -53,10 +51,10 @@ export const informations = [
 ];
 
 export const legalLinks = [
-  { name: 'Polityka prywatności', linkTo: '/legal/privacy' },
-  { name: 'Wykorzystanie plików cookie', linkTo: '/legal/privacy/cookies' },
-  { name: 'Warunki korzystania', linkTo: '/legal/internetServices/terms' },
-  { name: 'Sprzeda i zwroty', linkTo: 'shop/browse/open/salesPolicies' },
-  { name: 'Informacje prawne', linkTo: '/legal' },
-  { name: 'Mapa witryny', linkTo: '/sitemap' }
+  { name: 'Polityka prywatności', linkTo: '/polityka-prywatnosci' },
+  { name: 'Wykorzystanie plików cookie', linkTo: '/pliki-cookies' },
+  { name: 'Warunki korzystania', linkTo: '/warunki-korzystania' },
+  { name: 'Sprzedaz i zwroty', linkTo: '/sprzedaz-i-zwroty' },
+  { name: 'Informacje prawne', linkTo: '/informacje-prawne' },
+  { name: 'Mapa witryny', linkTo: '/mapa-witryny' }
 ];
