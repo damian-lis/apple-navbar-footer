@@ -15,8 +15,8 @@ const FooterComponent = ({ children, informations, legalLinks }) => {
           </Footer.CopyList>
           <Footer.LegalList>
             {legalLinks.map((legalLink) => (
-              <Footer.LegalItem key={legalLink.name} to={legalLink.linkTo}>
-                <Footer.LegalLink>{legalLink.name}</Footer.LegalLink>
+              <Footer.LegalItem key={legalLink.name}>
+                <Footer.LegalLink to={legalLink.linkTo}>{legalLink.name}</Footer.LegalLink>
               </Footer.LegalItem>
             ))}
           </Footer.LegalList>
