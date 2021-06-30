@@ -4,7 +4,7 @@ const store = createContext();
 const { Provider: HeaderProvider } = store;
 
 function Provider({ children }) {
-  const [search, setSearch] = useState(false);
+  const [search, setSearch] = useState(null);
   const [keyword, setKeyword] = useState('');
   const [inputClick, setInputClick] = useState(false);
   const [bagOpen, setBagOpen] = useState(false);
