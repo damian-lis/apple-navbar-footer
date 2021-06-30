@@ -44,22 +44,24 @@ const ResultComponent = ({ resultItems, navItems, navIcons, ...restProps }) => {
           </Result.MobileList>
         </Result.MobileNav>
 
-        <Result.Category>
-          <Result.Header>PODRĘCZNE ŁACZA</Result.Header>
-          <Result.List>
-            {filteredElements.map((element) => {
-              return (
-                <Result.Item key={element.name}>
-                  <Result.Link to={element.linkTo} onClick={handleClick}>
-                    {element.name}
-                  </Result.Link>
-                </Result.Item>
-              );
-            })}
-          </Result.List>
-        </Result.Category>
+        {filteredElements.length ? (
+          <Result.Category>
+            <Result.Header>PODRĘCZNE ŁACZA</Result.Header>
+            <Result.List>
+              {filteredElements.map((element) => {
+                return (
+                  <Result.Item key={element.name}>
+                    <Result.Link to={element.linkTo} onClick={handleClick}>
+                      {element.name}
+                    </Result.Link>
+                  </Result.Item>
+                );
+              })}
+            </Result.List>
+          </Result.Category>
+        ) : null}
 
-        {keyword.length > 1 && (
+        {keyword.length > 1 && filteredSuggestions.length ? (
           <Result.Category>
             <Result.Header>PROPONOWANE WYSZUKIWANIA</Result.Header>
             <Result.List>
@@ -73,7 +75,7 @@ const ResultComponent = ({ resultItems, navItems, navIcons, ...restProps }) => {
               ))}
             </Result.List>
           </Result.Category>
-        )}
+        ) : null}
       </Result.Wrapper>
     </Result>
   );
