@@ -54,13 +54,13 @@ const SearchComponent = ({ navIcons, children, ...restProps }) => {
             <Search.InputDesktop
               value={keyword}
               onChange={(e) => handleInputChange(e)}
-              placeholder="Szukaj w Leaf.com"
+              placeholder="Szukaj..."
             />
             <Search.InputMobile
               value={keyword}
               onClick={handleInputMobileClick}
               onChange={(e) => handleInputChange(e)}
-              placeholder="Szukaj w Leaf.com"
+              placeholder="Szukaj..."
             />
           </Search.InputContainer>
           <Search.ButtonContainer>
