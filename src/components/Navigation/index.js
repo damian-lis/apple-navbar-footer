@@ -1,13 +1,15 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect } from 'react';
+import { useWindowWidth } from '@react-hook/window-size';
 import Navigation from './components';
 import { WrapperComponent } from 'components';
 import { HeaderContext, CurtainContext } from 'contexts';
 
 const NavigationComponent = ({ navItems, navIcons, ...restProps }) => {
-  const { bagOpen, setBagOpen, search, setSearch, setKeyword, inputClick } = useContext(
-    HeaderContext.store
-  );
+  const { bagOpen, setBagOpen, search, setSearch, setKeyword, setInputClick, inputClick } =
+    useContext(HeaderContext.store);
   const { curtain, setCurtain } = useContext(CurtainContext.store);
+
+  const windowWidth = useWindowWidth();
 
   const handleHamburgerClick = () => {
     setSearch(!search);
@@ -29,6 +31,14 @@ const NavigationComponent = ({ navItems, navIcons, ...restProps }) => {
   const handleBagClick = () => {
     setBagOpen(!bagOpen);
   };
+
+  useEffect(() => {
+    setCurtain(false);
+    setInputClick(false);
+    setBagOpen(false);
+    setSearch(null);
+    setKeyword('');
+  }, [windowWidth]);
 
   return (
     <Navigation inputClick={inputClick} search={search} {...restProps}>
