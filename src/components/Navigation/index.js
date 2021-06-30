@@ -3,6 +3,7 @@ import { useWindowWidth } from '@react-hook/window-size';
 import Navigation from './components';
 import { WrapperComponent } from 'components';
 import { HeaderContext, CurtainContext } from 'contexts';
+import { scrollTop } from 'helpers';
 
 const NavigationComponent = ({ navItems, navIcons, ...restProps }) => {
   const { bagOpen, setBagOpen, search, setSearch, setKeyword, setInputClick, inputClick } =
@@ -18,6 +19,7 @@ const NavigationComponent = ({ navItems, navIcons, ...restProps }) => {
   };
 
   const handleLogoClick = () => {
+    scrollTop();
     setSearch(false);
     setCurtain(false);
   };
@@ -30,6 +32,10 @@ const NavigationComponent = ({ navItems, navIcons, ...restProps }) => {
 
   const handleBagClick = () => {
     setBagOpen(!bagOpen);
+  };
+
+  const handleLinkClick = () => {
+    scrollTop();
   };
 
   useEffect(() => {
@@ -56,7 +62,9 @@ const NavigationComponent = ({ navItems, navIcons, ...restProps }) => {
           </Navigation.ListItem>
           {navItems.map((item, index) => (
             <Navigation.ListItem datatype="item" key={index}>
-              <Navigation.Link to={item.linkTo}>{item.name}</Navigation.Link>
+              <Navigation.Link onClick={handleLinkClick} to={item.linkTo}>
+                {item.name}
+              </Navigation.Link>
             </Navigation.ListItem>
           ))}
           <Navigation.ListItem datatype="searchIcon" onClick={handleSearchClick}>

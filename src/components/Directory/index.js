@@ -2,16 +2,22 @@ import { React, useState } from 'react';
 import Directory from './components';
 import { useWindowWidth } from '@react-hook/window-size';
 import theme from 'data/theme';
+import { scrollTop } from 'helpers';
 
 const DirectoryComponent = ({ directoryItems }) => {
   const [click, setClick] = useState(-1);
 
-  const onClickHandler = (index) => {
+  const handleTitleClick = (index) => {
     if (index === click) {
       setClick(-1);
     } else {
       setClick(index);
     }
+  };
+
+  const handleLinkClick = () => {
+    setClick(-1);
+    scrollTop();
   };
 
   const windowWidth = useWindowWidth();
@@ -21,13 +27,15 @@ const DirectoryComponent = ({ directoryItems }) => {
     <Directory>
       {directoryItems.map((item, index) => (
         <Directory.Column active={click === index} key={directoryItems.title}>
-          <Directory.Title onClick={() => isMobile && onClickHandler(index)}>
+          <Directory.Title onClick={() => isMobile && handleTitleClick(index)}>
             {item.title}
           </Directory.Title>
           <Directory.List>
             {item.links.map((link) => (
               <Directory.ListItem key={link.name}>
-                <Directory.Link to={link.linkTo}>{link.name}</Directory.Link>
+                <Directory.Link onClick={handleLinkClick} to={link.linkTo}>
+                  {link.name}
+                </Directory.Link>
               </Directory.ListItem>
             ))}
           </Directory.List>

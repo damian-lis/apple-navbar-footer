@@ -2,7 +2,7 @@ import React, { useEffect, useRef, useContext } from 'react';
 import { WrapperComponent } from 'components';
 import Bag from './components';
 import { HeaderContext } from 'contexts';
-import { setAreaListener } from 'helpers';
+import { setAreaListener, scrollTop } from 'helpers';
 
 const BagComponent = ({ bagItems, ...restProps }) => {
   const { setBagOpen } = useContext(HeaderContext.store);
@@ -10,6 +10,7 @@ const BagComponent = ({ bagItems, ...restProps }) => {
 
   const handleClick = () => {
     setBagOpen(false);
+    scrollTop();
   };
 
   useEffect(() => setAreaListener(contentRef, [setBagOpen]));

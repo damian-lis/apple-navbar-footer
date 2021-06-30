@@ -2,6 +2,7 @@ import React, { useContext } from 'react';
 import Result from './components';
 import { filterByKeywords } from 'helpers';
 import { CurtainContext, HeaderContext } from 'contexts';
+import { scrollTop } from 'helpers';
 
 const ResultComponent = ({ resultItems, navItems, ...restProps }) => {
   const { search, setSearch, keyword, inputClick, setInputClick } = useContext(HeaderContext.store);
@@ -13,12 +14,14 @@ const ResultComponent = ({ resultItems, navItems, ...restProps }) => {
   const handleMobileClick = () => {
     setSearch(false);
     setCurtain(false);
+    scrollTop();
   };
 
   const handleClick = () => {
     setSearch(false);
     setCurtain(false);
     setInputClick(false);
+    scrollTop();
   };
 
   return (

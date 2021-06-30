@@ -1,6 +1,7 @@
 import setAreaListener from './setAreaListener';
 import filterByKeywords from './filterByKeywords';
 import collectPagePaths from './collectPagePaths';
+import scrollTop from './scrollTop';
 import { headerHeightDefault, headerHeightMobile, tabletBp } from './theme';
 
 export {
@@ -9,5 +10,6 @@ export {
   collectPagePaths,
   headerHeightDefault,
   headerHeightMobile,
-  tabletBp
+  tabletBp,
+  scrollTop
 };
