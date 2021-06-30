@@ -109,7 +109,7 @@ export const Container = styled.section`
     ${Link} {
       padding-left: 0;
       font-size: 14px;
-      color: #808080;
+      color: white;
 
       &:hover {
         background-color: transparent;
@@ -145,6 +145,9 @@ export const Container = styled.section`
       width: 100%;
       font-size: 17px;
       color: white;
+      &:hover {
+        color: #2997ff;
+      }
     }
   }
 `;
