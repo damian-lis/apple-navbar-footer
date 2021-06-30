@@ -51,7 +51,8 @@ const NavigationComponent = ({ navItems, navIcons, ...restProps }) => {
       <WrapperComponent>
         <Navigation.List>
           <Navigation.ListItem datatype="hamburgerIcon" onClick={handleHamburgerClick}>
-            <Navigation.Icon className={navIcons.hamburgerIcon}></Navigation.Icon>
+            <Navigation.Icon
+              className={search ? navIcons.closeIcon : navIcons.hamburgerIcon}></Navigation.Icon>
           </Navigation.ListItem>
           <Navigation.ListItem datatype="logoIcon">
             <Navigation.Link to="/">
