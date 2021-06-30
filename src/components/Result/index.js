@@ -4,7 +4,7 @@ import { filterByKeywords } from 'helpers';
 import { CurtainContext, HeaderContext } from 'contexts';
 import { scrollTop } from 'helpers';
 
-const ResultComponent = ({ resultItems, navItems, ...restProps }) => {
+const ResultComponent = ({ resultItems, navItems, navIcons, ...restProps }) => {
   const { search, setSearch, keyword, inputClick, setInputClick } = useContext(HeaderContext.store);
   const { curtain, setCurtain } = useContext(CurtainContext.store);
 
@@ -66,7 +66,7 @@ const ResultComponent = ({ resultItems, navItems, ...restProps }) => {
               {filteredSuggestions.map((suggestion) => (
                 <Result.Item key={suggestion.name}>
                   <Result.Link to={suggestion.linkTo} onClick={handleClick}>
-                    <Result.Icon className="fas fa-search" />
+                    <Result.Icon className={navIcons.searchIcon} />
                     {suggestion.name}
                   </Result.Link>
                 </Result.Item>

@@ -21,7 +21,7 @@ const HeaderContainer = ({ navItems, navIcons, bagItems, resultItems, ...restPro
         {...restProps}>
         {bagOpen && <BagComponent bagItems={bagItems} />}
         <SearchComponent navIcons={navIcons}>
-          <ResultComponent resultItems={resultItems} navItems={navItems} />
+          <ResultComponent resultItems={resultItems} navItems={navItems} navIcons={navIcons} />
         </SearchComponent>
       </HeaderComponent>
     </>
