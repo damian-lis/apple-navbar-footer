@@ -5,7 +5,7 @@ const setBackgroundColor = ({ theme: { header }, search }) =>
   search ? header.colors.background.main : header.colors.background.dark;
 
 export const Container = styled.header`
-  position: relative;
+  position: fixed;
   height: ${headerHeightDefault};
   width: 100%;
   background-color: ${setBackgroundColor};
@@ -22,4 +22,12 @@ export const Container = styled.header`
 
 export const Aside = styled.aside`
   height: 0;
+`;
+
+export const Fill = styled.div`
+  height: ${headerHeightDefault};
+
+  @media (max-width: ${tabletBp}) {
+    height: ${headerHeightMobile};
+  }
 `;

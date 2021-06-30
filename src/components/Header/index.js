@@ -6,10 +6,13 @@ const HeaderComponent = ({ children, Navigation, ...restProps }) => {
   const { search, inputClick } = useContext(HeaderContext.store);
 
   return (
-    <Header inputClick={inputClick} search={search} {...restProps}>
-      {Navigation}
-      <Header.Aside>{children}</Header.Aside>
-    </Header>
+    <>
+      <Header inputClick={inputClick} search={search} {...restProps}>
+        {Navigation}
+        <Header.Aside>{children}</Header.Aside>
+      </Header>
+      <Header.Fill />
+    </>
   );
 };
 
