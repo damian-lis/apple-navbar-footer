@@ -56,19 +56,21 @@ const ResultComponent = ({ resultItems, navItems, ...restProps }) => {
           </Result.List>
         </Result.Category>
 
-        <Result.Category>
-          <Result.Header>PROPONOWANE WYSZUKIWANIA</Result.Header>
-          <Result.List>
-            {filteredSuggestions.map((suggestion) => (
-              <Result.Item key={suggestion.name}>
-                <Result.Link to={suggestion.linkTo} onClick={handleClick}>
-                  <Result.Icon className="fas fa-search" />
-                  {suggestion.name}
-                </Result.Link>
-              </Result.Item>
-            ))}
-          </Result.List>
-        </Result.Category>
+        {keyword.length > 1 && (
+          <Result.Category>
+            <Result.Header>PROPONOWANE WYSZUKIWANIA</Result.Header>
+            <Result.List>
+              {filteredSuggestions.map((suggestion) => (
+                <Result.Item key={suggestion.name}>
+                  <Result.Link to={suggestion.linkTo} onClick={handleClick}>
+                    <Result.Icon className="fas fa-search" />
+                    {suggestion.name}
+                  </Result.Link>
+                </Result.Item>
+              ))}
+            </Result.List>
+          </Result.Category>
+        )}
       </Result.Wrapper>
     </Result>
   );
