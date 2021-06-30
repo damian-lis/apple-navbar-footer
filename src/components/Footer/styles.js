@@ -33,6 +33,7 @@ export const Container = styled.footer`
   }
 
   ${LegalLink} {
+    display: block;
     margin-top: 5px;
     margin-right: 20px;
     padding-right: 20px;
@@ -51,6 +52,10 @@ export const Container = styled.footer`
   @media (max-width: ${tabletBp}) {
     ${CopyList} {
       border-top: none;
+    }
+
+    ${LegalLink} {
+      margin-top: 8px;
     }
   }
 `;
