@@ -1,12 +1,7 @@
 import styled from 'styled-components/macro';
 import { Link as RouterLink } from 'react-router-dom';
-import { itemShow, itemHidden } from './animations';
-
-const tabletBp = ({
-  theme: {
-    general: { breakpoints }
-  }
-}) => breakpoints.tablet && breakpoints.tablet;
+import { listItemAnimation } from './animations';
+import { tabletBp } from 'helpers';
 
 export const List = styled.ul``;
 export const ListItem = styled.li``;
@@ -16,6 +11,7 @@ export const Link = styled(RouterLink)``;
 export const Container = styled.nav`
   height: 100%;
   margin: 0 auto;
+  font-size: 15px;
 
   ${List} {
     display: flex;
@@ -25,37 +21,10 @@ export const Container = styled.nav`
   }
 
   ${ListItem} {
-    font-size: ${({ search }) => (search ? '15px' : '0')};
-    opacity: ${({ search }) => (search ? '1' : '0')};
+    ${listItemAnimation};
     cursor: pointer;
-    animation-name: ${({ search }) => (search ? itemHidden : itemShow)};
-    animation-duration: 0.3s;
-    animation-fill-mode: forwards;
-
-    &:nth-last-of-type(1) {
-      animation-delay: ${({ search }) => (search ? '0.1s' : '0.8s')};
-    }
-    &:nth-last-of-type(2) {
-      animation-delay: ${({ search }) => (search ? '0.2s' : '0.7s')};
-    }
-    &:nth-last-of-type(3) {
-      animation-delay: ${({ search }) => (search ? '0.3s' : '0.6s')};
-    }
-    &:nth-last-of-type(4) {
-      animation-delay: ${({ search }) => (search ? '0.4s' : '0.5s')};
-    }
-    &:nth-last-of-type(5) {
-      animation-delay: ${({ search }) => (search ? '0.5s' : '0.4s')};
-    }
-    &:nth-last-of-type(6) {
-      animation-delay: ${({ search }) => (search ? '0.6s' : '0.3s')};
-    }
-    &:nth-last-of-type(7) {
-      animation-delay: ${({ search }) => (search ? '0.7s' : '0.2s')};
-    }
-    &:nth-last-of-type(8) {
-      animation-delay: ${({ search }) => (search ? '0.8s' : '0.1s')};
-    }
+    opacity: 1;
+    visibility: visible;
 
     &[datatype='hamburgerIcon'] {
       display: none;

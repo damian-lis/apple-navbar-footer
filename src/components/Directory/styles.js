@@ -1,11 +1,6 @@
 import styled from 'styled-components/macro';
 import { Link as RouterLink } from 'react-router-dom';
-
-const tabletBp = ({
-  theme: {
-    general: { breakpoints }
-  }
-}) => breakpoints.tablet && breakpoints.tablet;
+import { tabletBp } from 'helpers';
 
 export const Title = styled.h3``;
 export const List = styled.ul``;

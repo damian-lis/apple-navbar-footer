@@ -1,12 +1,7 @@
 import styled from 'styled-components/macro';
 import { Link as RouterLink } from 'react-router-dom';
-import { resultsHidden, resultsShow } from './animations';
-
-const tabletBp = ({
-  theme: {
-    general: { breakpoints }
-  }
-}) => breakpoints.tablet && breakpoints.tablet;
+import { mainContainerAnimation } from './animations';
+import { tabletBp } from 'helpers';
 
 export const Wrapper = styled.div``;
 export const Category = styled.div``;
@@ -21,6 +16,7 @@ export const MobileItem = styled.li``;
 export const MobileLink = styled(RouterLink)``;
 
 export const Container = styled.section`
+  ${mainContainerAnimation};
   height: 0;
   max-height: 70%;
   width: 100%;
@@ -31,10 +27,6 @@ export const Container = styled.section`
   border-bottom-right-radius: 20px;
   opacity: 0;
   overflow: hidden;
-  animation-name: ${({ search }) => (search ? resultsShow : resultsHidden)};
-  animation-duration: ${({ search }) => (search ? '.3s' : '.1s')};
-  animation-fill-mode: forwards;
-  animation-delay: ${({ search }) => (search ? '.7s' : '0')};
 
   ${Header} {
     padding-top: 20px;

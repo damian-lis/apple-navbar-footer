@@ -1,11 +1,6 @@
 import { Link } from 'react-router-dom';
 import styled from 'styled-components/macro';
-
-const tabletBp = ({
-  theme: {
-    general: { breakpoints }
-  }
-}) => breakpoints.tablet && breakpoints.tablet;
+import { tabletBp } from 'helpers';
 
 export const BottomSection = styled.section``;
 export const CopyList = styled.ul``;
