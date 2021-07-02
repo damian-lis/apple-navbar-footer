@@ -5,7 +5,8 @@ import { CurtainContext, HeaderContext } from 'contexts';
 import { scrollTop } from 'helpers';
 
 const ResultComponent = ({ resultItems, navItems, navIcons, ...restProps }) => {
-  const { search, setSearch, keyword, inputClick, setInputClick } = useContext(HeaderContext.store);
+  const { search, setSearch, keyword, inputClick, setInputClick, clickSearch, setClickSearch } =
+    useContext(HeaderContext.store);
   const { curtain, setCurtain } = useContext(CurtainContext.store);
 
   const filteredElements = filterByKeywords(resultItems.elements, keyword);
@@ -14,6 +15,7 @@ const ResultComponent = ({ resultItems, navItems, navIcons, ...restProps }) => {
   const handleMobileClick = () => {
     setSearch(false);
     setCurtain(false);
+    setClickSearch(true);
     scrollTop();
   };
 
@@ -21,6 +23,7 @@ const ResultComponent = ({ resultItems, navItems, navIcons, ...restProps }) => {
     setSearch(false);
     setCurtain(false);
     setInputClick(false);
+    setClickSearch(true);
     scrollTop();
   };
 
@@ -32,17 +35,19 @@ const ResultComponent = ({ resultItems, navItems, navIcons, ...restProps }) => {
       keyword={keyword}
       {...restProps}>
       <Result.Wrapper>
-        <Result.MobileNav>
-          <Result.MobileList>
-            {navItems.map((item) => (
-              <Result.MobileItem key={item.name}>
-                <Result.MobileLink to={item.linkTo} onClick={handleMobileClick}>
-                  {item.name}
-                </Result.MobileLink>
-              </Result.MobileItem>
-            ))}
-          </Result.MobileList>
-        </Result.MobileNav>
+        {!clickSearch && (
+          <Result.MobileNav>
+            <Result.MobileList>
+              {navItems.map((item) => (
+                <Result.MobileItem key={item.name}>
+                  <Result.MobileLink to={item.linkTo} onClick={handleMobileClick}>
+                    {item.name}
+                  </Result.MobileLink>
+                </Result.MobileItem>
+              ))}
+            </Result.MobileList>
+          </Result.MobileNav>
+        )}
 
         {filteredElements.length ? (
           <Result.Category>

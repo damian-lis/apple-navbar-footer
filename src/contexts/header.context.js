@@ -8,6 +8,7 @@ function Provider({ children }) {
   const [keyword, setKeyword] = useState('');
   const [inputClick, setInputClick] = useState(false);
   const [bagOpen, setBagOpen] = useState(false);
+  const [clickSearch, setClickSearch] = useState(false);
 
   return (
     <HeaderProvider
@@ -19,7 +20,9 @@ function Provider({ children }) {
         inputClick,
         setInputClick,
         bagOpen,
-        setBagOpen
+        setBagOpen,
+        clickSearch,
+        setClickSearch
       }}>
       {children}
     </HeaderProvider>

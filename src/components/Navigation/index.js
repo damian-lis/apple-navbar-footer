@@ -6,8 +6,16 @@ import { HeaderContext, CurtainContext } from 'contexts';
 import { scrollTop } from 'helpers';
 
 const NavigationComponent = ({ navItems, navIcons, ...restProps }) => {
-  const { bagOpen, setBagOpen, search, setSearch, setKeyword, setInputClick, inputClick } =
-    useContext(HeaderContext.store);
+  const {
+    bagOpen,
+    setBagOpen,
+    search,
+    setSearch,
+    setKeyword,
+    setInputClick,
+    inputClick,
+    setClickSearch
+  } = useContext(HeaderContext.store);
   const { curtain, setCurtain } = useContext(CurtainContext.store);
 
   const windowWidth = useWindowWidth();
@@ -15,18 +23,20 @@ const NavigationComponent = ({ navItems, navIcons, ...restProps }) => {
   const handleHamburgerClick = () => {
     setSearch(!search);
     setCurtain(!curtain);
+    setClickSearch(false);
     setKeyword('');
   };
 
   const handleLogoClick = () => {
     scrollTop();
-    setSearch(false);
+    setSearch(null);
     setCurtain(false);
   };
 
   const handleSearchClick = () => {
     setSearch(true);
     setCurtain(true);
+    setClickSearch(false);
     setKeyword('');
   };
 
