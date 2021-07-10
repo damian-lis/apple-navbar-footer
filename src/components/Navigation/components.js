@@ -1,4 +1,4 @@
-import { Container, List, ListItem, Icon, Link } from './styles';
+import { Container, List, ListItem, Icon, Link, Logo } from './styles';
 
 export default function Navigation({ children, ...restProps }) {
   return <Container {...restProps}>{children}</Container>;
@@ -18,4 +18,8 @@ Navigation.Icon = function HeaderIcon({ children, ...restProps }) {
 
 Navigation.Link = function HeaderLink({ children, ...restProps }) {
   return <Link {...restProps}>{children}</Link>;
+};
+
+Navigation.Logo = function HeaderLogo({ children, ...restProps }) {
+  return <Logo {...restProps}>{children}</Logo>;
 };

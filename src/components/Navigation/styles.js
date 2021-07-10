@@ -7,6 +7,7 @@ export const List = styled.ul``;
 export const ListItem = styled.li``;
 export const Icon = styled.i``;
 export const Link = styled(RouterLink)``;
+export const Logo = styled.img``;
 
 export const Container = styled.nav`
   height: 100%;
@@ -38,6 +39,11 @@ export const Container = styled.nav`
     color: white;
   }
 
+  ${Logo} {
+    width: 20px;
+    height: 20px;
+  }
+
   @media (max-width: ${tabletBp}) {
     ${List} {
       justify-content: space-between;
@@ -61,6 +67,11 @@ export const Container = styled.nav`
       &[datatype='bagIcon'] {
         height: ${({ search }) => (search ? '0' : 'auto')};
         overflow: hidden;
+      }
+
+      ${Logo} {
+        width: 23px;
+        height: 23px;
       }
     }
   }

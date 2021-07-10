@@ -1,6 +1,6 @@
 export const navIcons = {
   hamburgerIcon: 'fas fa-bars',
-  logoIcon: 'fas fa-leaf',
+  logoIcon: 'images/logo.svg',
   searchIcon: 'fas fa-search',
   bagIcon: 'fas fa-shopping-bag',
   closeIcon: 'fas fa-times'

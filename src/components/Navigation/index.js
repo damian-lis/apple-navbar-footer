@@ -66,9 +66,7 @@ const NavigationComponent = ({ navItems, navIcons, ...restProps }) => {
           </Navigation.ListItem>
           <Navigation.ListItem datatype="logoIcon">
             <Navigation.Link to="/">
-              <Navigation.Icon
-                className={navIcons.logoIcon}
-                onClick={handleLogoClick}></Navigation.Icon>
+              <Navigation.Logo src={navIcons.logoIcon} onClick={handleLogoClick}></Navigation.Logo>
             </Navigation.Link>
           </Navigation.ListItem>
           {navItems.map((item, index) => (
