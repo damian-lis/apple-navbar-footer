@@ -1,4 +1,4 @@
-# Apple navbar and footer
+# My Apple App
 
 A website that maps navbar and footer from apple.com using styled components (compound components).
 
@@ -8,7 +8,7 @@ A website that maps navbar and footer from apple.com using styled components (co
 
 <br/>
 
-### Live version is available [here](https://apple-navbar-footer.vercel.app/).
+### Live version is available [here](https://my-apple-app.vercel.app/).
 
 <br/>
 
