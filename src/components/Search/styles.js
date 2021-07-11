@@ -72,7 +72,6 @@ export const Container = styled.div`
     height: 100%;
     width: 100%;
     font-size: 17px;
-
     color: #808080;
   }
 

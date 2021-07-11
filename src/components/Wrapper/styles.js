@@ -1,10 +1,5 @@
 import styled from 'styled-components/macro';
-
-const tabletBp = ({
-  theme: {
-    general: { breakpoints }
-  }
-}) => breakpoints.tablet && breakpoints.tablet;
+import { tabletBp } from 'helpers';
 
 export const Container = styled.div`
   height: 100%;
