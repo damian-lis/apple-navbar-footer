@@ -69,8 +69,8 @@ const NavigationComponent = ({ navItems, navIcons, ...restProps }) => {
               <Navigation.Logo src={navIcons.logoIcon} onClick={handleLogoClick}></Navigation.Logo>
             </Navigation.Link>
           </Navigation.ListItem>
-          {navItems.map((item, index) => (
-            <Navigation.ListItem datatype="item" key={index}>
+          {navItems.map((item) => (
+            <Navigation.ListItem datatype="item" key={item.name}>
               <Navigation.Link onClick={handleLinkClick} to={item.linkTo}>
                 {item.name}
               </Navigation.Link>

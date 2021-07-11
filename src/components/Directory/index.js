@@ -26,7 +26,7 @@ const DirectoryComponent = ({ directoryItems }) => {
   return (
     <Directory>
       {directoryItems.map((item, index) => (
-        <Directory.Column active={click === index} key={directoryItems.title}>
+        <Directory.Column active={click === index} key={item.title}>
           <Directory.Title onClick={() => isMobile && handleTitleClick(index)}>
             {item.title}
           </Directory.Title>
